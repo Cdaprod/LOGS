@@ -1,0 +1,8 @@
+Prompt: Generate a Go implementation of a logging system for the REGS component that uses the Logger interface. The Logger interface should support methods for Info, Warn, Error, and Debug logging levels, as well as structured logging with fields and context. The implementation should be based on the Zap logging library and allow for easy integration and dynamic configuration. Additionally, provide code examples for how the logging system can be initialized and used within the REGS component, ensuring it is compatible with a plugin-based architecture and supports future scalability.
+
+Expected Output:
+- A Go interface definition for the Logger with methods for Info, Warn, Error, Debug, and structured logging.
+- A ZapLogger implementation of the Logger interface using Uber's zap logging library.
+- Code examples demonstrating how to initialize and use the logger in a service context.
+- Instructions for dynamically managing log levels and configuring the logger via a configuration management system.
+- Suggestions for extending the logging system to support centralized logging and advanced features like log rotation and alerting.

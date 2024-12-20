@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package logservice;
+
+// Log Entry message format
+message LogEntry {
+  string timestamp = 1;   // Log entry timestamp
+  string log_level = 2;   // Log level (e.g., DEBUG, INFO, WARN, ERROR)
+  string message = 3;     // Log message
+  map<string, string> metadata = 4;  // Additional log metadata
+}
+
+// Log Request for querying logs
+message LogRequest {
+  string log_level = 1;   // Filter by log level
+  string start_time = 2;  // Start time for log entries
+  string end_time = 3;    // End time for log entries
+}
+
+// Log Response containing queried logs
+message LogResponse {
+  repeated LogEntry entries = 1; // List of log entries
+}
+
+// Logging Service definition
+service LoggingService {
+  rpc SendLog(LogEntry) returns (google.protobuf.Empty);
+  rpc GetLogs(LogRequest) returns (LogResponse);
+}
